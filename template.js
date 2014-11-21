@@ -50,7 +50,7 @@ exports.template = function(grunt, init, done) {
       }
     }
 
-    init.copyAndProcess(files, props);
+    init.copyAndProcess(files, props, {noProcess: '.paket/**'});
 
     // All done!
     done();
