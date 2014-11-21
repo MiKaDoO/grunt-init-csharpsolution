@@ -31,11 +31,17 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="nunit.framework">
-      <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+      <HintPath>..\..\..\..\packages\NUnit\lib\nunit.framework.dll</HintPath>
+      <Private>True</Private>
+      <Paket>True</Paket>
     </Reference>
     <Reference Include="Should">
-      <HintPath>..\packages\Should.1.1.20\lib\Should.dll</HintPath>
+      <HintPath>..\..\..\..\packages\Should\lib\Should.dll</HintPath>
+      <Private>True</Private>
+      <Paket>True</Paket>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
   </ItemGroup>
@@ -43,13 +49,13 @@
     <Compile Include="Tests.cs" />
   </ItemGroup>
   <ItemGroup>
-      <ProjectReference Include="..\{%= name %}\{%= name %}.csproj">
+    <ProjectReference Include="..\{%= name %}\{%= name %}.csproj">
       <Project>{{%= projectGuid %}}</Project>
       <Name>{%= name %}</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="paket.references" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

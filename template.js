@@ -14,7 +14,7 @@ exports.description = 'Create a C# solution with main project + nunit test proje
 exports.notes = '';
 
 // Template-specific notes to be displayed after question prompts.
-exports.after = 'You should now install project dependencies with nuget restore'
+exports.after = 'You should now install project dependencies with paket'
 
 // Any existing file or directory matching this wildcard will cause a warning.
 exports.warnOn = '*';
