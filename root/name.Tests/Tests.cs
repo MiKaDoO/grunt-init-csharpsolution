@@ -1,5 +1,5 @@
 ﻿using NUnit.Framework;
-using Should;
+using NFluent;
 
 namespace {%= name %}.Tests
 {
@@ -9,7 +9,8 @@ namespace {%= name %}.Tests
         [Test]
         public void Should_be_true()
         {
-            true.ShouldBeTrue();
+            var heroes = "Batman and Robin";
+			Check.That(heroes).Not.Contains("Joker").And.StartsWith("Bat").And.Contains("Robin");
         }
     }
 }

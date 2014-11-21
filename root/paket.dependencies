@@ -1,5 +1,5 @@
 source https://nuget.org/api/v2
 
-nuget Should
+nuget NFluent
 nuget NUnit.Runners >= 2.6
 nuget NUnit >= 2.6
