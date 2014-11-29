@@ -31,12 +31,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="nunit.framework">
-      <HintPath>..\..\..\..\packages\NUnit\lib\nunit.framework.dll</HintPath>
+      <HintPath>..\packages\NUnit\lib\nunit.framework.dll</HintPath>
       <Private>True</Private>
       <Paket>True</Paket>
     </Reference>
-    <Reference Include="Should">
-      <HintPath>..\..\..\..\packages\Should\lib\Should.dll</HintPath>
+    <Reference Include="NFluent">
+      <HintPath>..\packages\NFluent\lib\net40\NFluent.dll</HintPath>
       <Private>True</Private>
       <Paket>True</Paket>
     </Reference>

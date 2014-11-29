@@ -1,0 +1,24 @@
+require 'albacore'
+
+
+task :paket_bootstrap do
+  system '.paket/paket.bootstrapper.exe', clr_command: true unless   File.exists? '.paket/paket.exe'
+end
+
+task :restore => :paket_bootstrap do
+  system '.paket/paket.exe', 'restore', clr_command: true
+end
+
+build :build do |b|
+  b.file   = '{%= name %}.sln' 
+  b.target = ['Clean', 'Rebuild']              
+  b.prop 'Configuration', 'Release'            
+  b.logging = 'normal'                       
+  b.nologo          
+end
+
+test_runner :tests do |tests|
+  tests.files = FileList['{%= name %}.Tests/bin/Release/{%= name %}.Tests.dll'] 
+  tests.exe = 'packages/NUnit.Runners/tools/nunit-console.exe' 
+  tests.native_exe 
+end
