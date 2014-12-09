@@ -30,17 +30,20 @@ exports.template = function(grunt, init, done) {
   }
 
   init.process({}, [
-    // Prompt for these values.
-    init.prompt('name')
+    init.prompt('name'),
+    {
+      name: 'rakefile',
+      message: 'Generate Rakefile?',
+      default: 'Y/n' 
+    }
   ], function(err, props) {
     props.keywords = [];
     props.projectGuid = generateUUID();
     props.testProjectGuid = generateUUID();
-    //
-    // Files to copy (and process).
+  
     var files = init.filesToCopy(props);
 
-    // Repath the files correctly
+    
     for (var file in files) {
       var path = files[file];
       var newFile = file.replace(/name/g, props.name);
@@ -49,10 +52,13 @@ exports.template = function(grunt, init, done) {
         delete files[file];
       }
     }
+	console.log(props.rakefile);
+    if(props.rakefile !== 'Y' && props.rakefile !== 'Y/n') {
+      delete files['Rakefile'];
+    }
 
     init.copyAndProcess(files, props, {noProcess: '.paket/**'});
 
-    // All done!
     done();
   });
 
